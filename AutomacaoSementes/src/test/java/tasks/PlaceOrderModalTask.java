@@ -24,7 +24,6 @@ public class PlaceOrderModalTask {
 
     public void clicoEmPurchase() throws InterruptedException {
         placeOrderModal.clickPurchaseButton();
-        Thread.sleep(5000);
     }
 
     public void euDevoVerAMensagemDeCompraRealizada() {

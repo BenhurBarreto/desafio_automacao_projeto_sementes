@@ -21,22 +21,22 @@ public class CartPage {
     public static final String PLACE_ORDER_BTN = "//button[text()='Place Order']";
 
     public void waitForProductTitle() {
-        driver.waitForElement(By.xpath(PRODUCTS_TITLE), 10);
+        driver.waitForElement(By.xpath(PRODUCTS_TITLE), Tools.getTimeout());
     }
 
     public void countQuantityOfProducts() {
-        List<WebElement> products = driver.findElements(By.xpath(PRODUCST_TABLE_QUANTITY), 10);
+        List<WebElement> products = driver.findElements(By.xpath(PRODUCST_TABLE_QUANTITY), Tools.getTimeout());
         Assertions.assertNotNull(products, "The list of products should not be null.");
         int actualCount = products.size();
-        Assertions.assertEquals(1, actualCount, "The number of products in the cart is incorrect.");
+        Assertions.assertEquals(Tools.getProperty("quantity"), actualCount, "The number of products in the cart is incorrect.");
     }
 
     public void verifyTotal() {
-        String value = driver.getText(By.id(TOTAL_INDICATOR), 10);
-        Assertions.assertEquals("400", value, "The total differs from the expected.");
+        String value = driver.getText(By.id(TOTAL_INDICATOR), Tools.getTimeout());
+        Assertions.assertEquals(Tools.getProperty("appleMonitorValue"), value, "The total differs from the expected.");
     }
 
     public void clickOnPlaceOrder() {
-        driver.click(By.xpath(PLACE_ORDER_BTN), 10);
+        driver.click(By.xpath(PLACE_ORDER_BTN), Tools.getTimeout());
     }
 }

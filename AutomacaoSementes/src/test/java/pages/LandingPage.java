@@ -19,14 +19,14 @@ public class LandingPage {
     }
 
     public void clickCategory() {
-        driver.click(By.xpath(CATEGORY_MONITORS_XPATH), 10);
+        driver.click(By.xpath(CATEGORY_MONITORS_XPATH), Tools.getTimeout());
     }
 
     public void waitForAppleMonitor() {
-        driver.waitForElement(By.xpath(PRODUCT_APPLE_MONITOR), 10);
+        driver.waitForElement(By.xpath(PRODUCT_APPLE_MONITOR), Tools.getTimeout());
     }
 
     public void clickOnAppleMonitor() {
-        driver.click(By.xpath(PRODUCT_APPLE_MONITOR), 10);
+        driver.click(By.xpath(PRODUCT_APPLE_MONITOR), Tools.getTimeout());
     }
 }

@@ -7,12 +7,29 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.time.Duration;
 import java.util.List;
+import java.util.Properties;
 
 public class Tools {
 
     public static WebDriver driver;
+    private static Properties properties;
+
+    static {
+        properties = new Properties();
+        try (InputStream input = Tools.class.getClassLoader().getResourceAsStream("config.properties")) {
+            if (input == null) {
+                System.err.println("Sorry, unable to find config.properties");
+            } else {
+                properties.load(input);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 
     public Tools(WebDriver driver) {
         Tools.driver = driver;
@@ -99,7 +116,11 @@ public class Tools {
         driver.quit();
     }
 
-    public WebDriver getWebDriver() {
-        return driver;
+    public static String getProperty(String key) {
+        return properties.getProperty(key);
+    }
+
+    public static int getTimeout() {
+        return Integer.parseInt(properties.getProperty("timeout", "10"));
     }
 }

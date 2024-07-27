@@ -16,18 +16,18 @@ public class ProductPage {
     public static final String CART_BTN = "cartur";
 
     public void waitForAppleTitle() {
-        driver.waitForElement(By.xpath(APPLE_MONITOR_TITLE), 10);
+        driver.waitForElement(By.xpath(APPLE_MONITOR_TITLE), Tools.getTimeout());
     }
 
     public void clickAddToCart() {
-        driver.click(By.xpath(APPLE_ADD_TO_CART_BTN), 10);
+        driver.click(By.xpath(APPLE_ADD_TO_CART_BTN), Tools.getTimeout());
     }
 
     public void clickAlertBox() {
-        driver.handleAlert(10);
+        driver.handleAlert(Tools.getTimeout());
     }
 
     public void clickOnCart() {
-        driver.click(By.id(CART_BTN), 10);
+        driver.click(By.id(CART_BTN), Tools.getTimeout());
     }
 }

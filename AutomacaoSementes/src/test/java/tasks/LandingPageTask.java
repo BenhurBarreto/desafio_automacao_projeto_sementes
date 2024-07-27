@@ -12,7 +12,7 @@ public class LandingPageTask {
     }
 
     public void queAcessoAProductStore() {
-        landingPage.waitForCategory(10);
+        landingPage.waitForCategory(Tools.getTimeout());
     }
 
     public void acessoACategoriaMonitors() {

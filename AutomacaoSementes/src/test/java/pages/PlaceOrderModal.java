@@ -23,42 +23,42 @@ public class PlaceOrderModal {
     public final String OK_SUCCESS_BUTTON = "//button[text()='OK']";
 
     public void waitModalTitle() {
-        driver.waitForElement(By.xpath(MODAL_TITLE), 10);
+        driver.waitForElement(By.xpath(MODAL_TITLE), Tools.getTimeout());
     }
 
     public void inputName() {
-        driver.sendKeys(By.id(INPUT_NAME), "Neil Peart", 10);
+        driver.sendKeys(By.id(INPUT_NAME), Tools.getProperty("name"), Tools.getTimeout());
     }
 
     public void inputCountry() {
-        driver.sendKeys(By.id(INPUT_COUNTRY), "Canada", 10);
+        driver.sendKeys(By.id(INPUT_COUNTRY), Tools.getProperty("country"), Tools.getTimeout());
     }
 
     public void inputCity() {
-        driver.sendKeys(By.id(INPUT_CITY), "Toronto", 10);
+        driver.sendKeys(By.id(INPUT_CITY), Tools.getProperty("city"), Tools.getTimeout());
     }
 
     public void inputCard() {
-        driver.sendKeys(By.id(INPUT_CARD), "4963258712340124", 10);
+        driver.sendKeys(By.id(INPUT_CARD), Tools.getProperty("card"), Tools.getTimeout());
     }
 
     public void inputMonth() {
-        driver.sendKeys(By.id(INPUT_MONTH), "August", 10);
+        driver.sendKeys(By.id(INPUT_MONTH), Tools.getProperty("month"), Tools.getTimeout());
     }
 
     public void inputYear() {
-        driver.sendKeys(By.id(INPUT_YEAR), "2024", 10);
+        driver.sendKeys(By.id(INPUT_YEAR), Tools.getProperty("year"), Tools.getTimeout());
     }
 
     public void clickPurchaseButton() {
-        driver.click(By.xpath(PURCHASE_BUTTON), 10);
+        driver.click(By.xpath(PURCHASE_BUTTON), Tools.getTimeout());
     }
 
     public void waitSuccessMessage() {
-        driver.waitForElement(By.xpath(SUCCESS_MESSAGE), 10);
+        driver.waitForElement(By.xpath(SUCCESS_MESSAGE), Tools.getTimeout());
     }
 
     public void clickOnOkSuccessScreen() {
-        driver.click(By.xpath(OK_SUCCESS_BUTTON), 10);
+        driver.click(By.xpath(OK_SUCCESS_BUTTON), Tools.getTimeout());
     }
 }
