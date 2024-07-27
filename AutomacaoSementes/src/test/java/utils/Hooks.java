@@ -2,20 +2,18 @@ package utils;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import utils.Driver;
 
 public class Hooks {
 
-    private Driver driver;
-
     @Before
     public void setup() {
-        driver = new Driver();
-        driver.openUrl("https://www.demoblaze.com/index.html");
+        Tools driver = Driver.getDriver();
+        String url = "https://www.demoblaze.com/index.html";
+        driver.openBrowser(url);
     }
 
     @After
     public void teardown() {
-        driver.getDriver().quit();
+        Driver.quitDriver();
     }
 }

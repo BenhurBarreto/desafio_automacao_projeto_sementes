@@ -1,11 +1,32 @@
 package pages;
 
-import utils.Driver;
+import org.openqa.selenium.By;
+import utils.Tools;
 
-public class LandingPage extends Driver {
-    public static String category_monitors = "//a[text()='Monitors']";
+public class LandingPage {
 
-    public static void waitForCategory () {
+    public Tools driver;
 
+    public LandingPage(Tools driver) {
+        this.driver = driver;
+    }
+
+    private static final String CATEGORY_MONITORS_XPATH = "//a[text()='Monitors']";
+    private static final String PRODUCT_APPLE_MONITOR = "//a[text()='Apple monitor 24']";
+
+    public void waitForCategory(int seconds) {
+        driver.waitForElement(By.xpath(CATEGORY_MONITORS_XPATH), seconds);
+    }
+
+    public void clickCategory() {
+        driver.click(By.xpath(CATEGORY_MONITORS_XPATH), 10);
+    }
+
+    public void waitForAppleMonitor() {
+        driver.waitForElement(By.xpath(PRODUCT_APPLE_MONITOR), 10);
+    }
+
+    public void clickOnAppleMonitor() {
+        driver.click(By.xpath(PRODUCT_APPLE_MONITOR), 10);
     }
 }
