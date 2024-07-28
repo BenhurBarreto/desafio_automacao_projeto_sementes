@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import utils.ExtentReportUtil;
 import utils.Tools;
 
 public class PlaceOrderModal {
@@ -24,6 +25,7 @@ public class PlaceOrderModal {
 
     public void waitModalTitle() {
         driver.waitForElement(By.xpath(MODAL_TITLE), Tools.getTimeout());
+        ExtentReportUtil.logPass("Purchaser window is displayed");
     }
 
     public void inputName() {
@@ -56,9 +58,11 @@ public class PlaceOrderModal {
 
     public void waitSuccessMessage() {
         driver.waitForElement(By.xpath(SUCCESS_MESSAGE), Tools.getTimeout());
+        ExtentReportUtil.logPass("Success message appears");
     }
 
     public void clickOnOkSuccessScreen() {
         driver.click(By.xpath(OK_SUCCESS_BUTTON), Tools.getTimeout());
+        ExtentReportUtil.logPass("Success button is clicked");
     }
 }

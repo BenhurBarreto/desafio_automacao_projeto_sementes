@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utils.Tools;
+import utils.ExtentReportUtil;
 
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class CartPage {
 
     public void waitForProductTitle() {
         driver.waitForElement(By.xpath(PRODUCTS_TITLE), Tools.getTimeout());
+        ExtentReportUtil.logPass("Product title is displayed");
     }
 
     public void countQuantityOfProducts() {
@@ -30,6 +32,7 @@ public class CartPage {
         int actualCount = products.size();
         int expectedCount = Integer.parseInt(Tools.getProperty("quantity"));
         Assertions.assertEquals(expectedCount, actualCount, "The number of products in the cart is incorrect.");
+        ExtentReportUtil.logPass("Product quantity is correct");
     }
 
     public void verifyTotal() {

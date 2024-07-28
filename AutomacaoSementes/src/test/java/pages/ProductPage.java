@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import utils.ExtentReportUtil;
 import utils.Tools;
 
 public class ProductPage {
@@ -17,6 +18,7 @@ public class ProductPage {
 
     public void waitForAppleTitle() {
         driver.waitForElement(By.xpath(APPLE_MONITOR_TITLE), Tools.getTimeout());
+        ExtentReportUtil.logPass("Product page is displayed");
     }
 
     public void clickAddToCart() {
@@ -25,6 +27,7 @@ public class ProductPage {
 
     public void clickAlertBox() {
         driver.handleAlert(Tools.getTimeout());
+        ExtentReportUtil.logPass("Alert box button is clicked");
     }
 
     public void clickOnCart() {
