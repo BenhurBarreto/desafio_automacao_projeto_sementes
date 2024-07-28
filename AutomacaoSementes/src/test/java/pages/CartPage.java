@@ -28,7 +28,8 @@ public class CartPage {
         List<WebElement> products = driver.findElements(By.xpath(PRODUCST_TABLE_QUANTITY), Tools.getTimeout());
         Assertions.assertNotNull(products, "The list of products should not be null.");
         int actualCount = products.size();
-        Assertions.assertEquals(Tools.getProperty("quantity"), actualCount, "The number of products in the cart is incorrect.");
+        int expectedCount = Integer.parseInt(Tools.getProperty("quantity"));
+        Assertions.assertEquals(expectedCount, actualCount, "The number of products in the cart is incorrect.");
     }
 
     public void verifyTotal() {
