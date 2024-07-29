@@ -59,13 +59,6 @@
             <version>4.23.0</version>
         </dependency>
 
-        <!-- WebDriver Manager -->
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>5.9.1</version>
-        </dependency>
-
         <!-- Extend Reports -->
         <dependency>
             <groupId>com.aventstack</groupId>
